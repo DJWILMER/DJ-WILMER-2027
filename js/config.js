@@ -28,13 +28,13 @@ window.APP_CONFIG = {
 
   /* Redes sociales del menú */
   social: [
-    { id: 'whatsapp', label: 'WhatsApp', icon: 'i-whatsapp', url: 'https://wa.me/', color: '#25D366' },
-    { id: 'facebook', label: 'Facebook', icon: 'i-facebook', url: 'https://www.facebook.com/', color: '#1877F2' },
-    { id: 'instagram', label: 'Instagram', icon: 'i-instagram', url: 'https://www.instagram.com/', color: '#E1306C' },
-    { id: 'youtube', label: 'YouTube', icon: 'i-youtube', url: 'https://www.youtube.com/', color: '#FF0000' },
+    { id: 'whatsapp', label: 'WhatsApp', icon: 'i-whatsapp', url: 'https://wa.me/51980634177', color: '#25D366' },
+    { id: 'facebook', label: 'Facebook', icon: 'i-facebook', url: 'https://www.facebook.com/DelgadoCiezaWilmer', color: '#1877F2' },
+    { id: 'instagram', label: 'Instagram', icon: 'i-instagram', url: 'https://www.instagram.com/wilmerdelgadocieza', color: '#E1306C' },
+    { id: 'youtube', label: 'YouTube', icon: 'i-youtube', url: 'https://www.youtube.com/@WilmerDelgadoCieza', color: '#FF0000' },
     { id: 'tiktok', label: 'TikTok', icon: 'i-tiktok', url: 'https://www.tiktok.com/@djchochobarwilmer', color: '#25F4EE' },
-    { id: 'x', label: 'X', icon: 'i-x', url: 'https://x.com/', color: '#e7e9ea' },
-    { id: 'spotify', label: 'Spotify', icon: 'i-spotify', url: 'https://open.spotify.com/', color: '#1DB954' },
+    { id: 'x', label: 'X', icon: 'i-x', url: 'https://t.me/SoftwaresRadios', color: '#e7e9ea' },
+    { id: 'spotify', label: 'Spotify', icon: 'i-spotify', url: 'https://open.spotify.com/user/cqglicu4u9q4hgdr5olt12cqo', color: '#1DB954' },
     { id: 'web', label: 'Web', icon: 'i-web', url: 'https://wilmerdelgadocieza.blogspot.com/', color: '#f0cb14' }
   ],
 
