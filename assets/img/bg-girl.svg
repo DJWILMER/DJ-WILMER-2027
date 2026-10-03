@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Chica escuchando musica">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#041726"/>
+      <stop offset="42%" stop-color="#0a4a63"/>
+      <stop offset="100%" stop-color="#0a0f1e"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="46%">
+      <stop offset="0%" stop-color="#2fd8ff" stop-opacity=".55"/>
+      <stop offset="60%" stop-color="#1a7fb5" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#0a0f1e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloWarm" cx="50%" cy="68%" r="40%">
+      <stop offset="0%" stop-color="#ff5fa8" stop-opacity=".38"/>
+      <stop offset="100%" stop-color="#ff5fa8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f6c9a8"/>
+      <stop offset="100%" stop-color="#e0a17c"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a1f2b"/>
+      <stop offset="55%" stop-color="#1d1018"/>
+      <stop offset="100%" stop-color="#2c1723"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#19e3c4"/>
+      <stop offset="100%" stop-color="#1f8fd6"/>
+    </linearGradient>
+    <linearGradient id="shirtDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f9fb0"/>
+      <stop offset="100%" stop-color="#11558f"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b4757"/>
+      <stop offset="100%" stop-color="#1a2029"/>
+    </linearGradient>
+    <linearGradient id="hairSheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+
+    <g id="bubble">
+      <circle r="5" fill="#9ff2ff" fill-opacity=".55"/>
+      <circle r="13" fill="none" stroke="#9ff2ff" stroke-opacity=".28" stroke-width="1.4"/>
+    </g>
+  </defs>
+
+  <rect width="1080" height="1920" fill="url(#sky)"/>
+  <rect width="1080" height="1920" fill="url(#halo)"/>
+  <rect width="1080" height="1920" fill="url(#haloWarm)"/>
+
+  <!-- Luces de la discoteca -->
+  <g filter="url(#soft)" opacity=".55">
+    <circle cx="180" cy="360" r="72" fill="#22d3ee"/>
+    <circle cx="905" cy="300" r="58" fill="#e879f9"/>
+    <circle cx="530" cy="250" r="46" fill="#7dd3fc"/>
+    <circle cx="820" cy="1080" r="80" fill="#22d3ee" fill-opacity=".5"/>
+    <circle cx="150" cy="1240" r="64" fill="#f472b6" fill-opacity=".45"/>
+  </g>
+
+  <!-- Disco / bola de espejos sugerida -->
+  <g opacity=".28" transform="translate(540 210)">
+    <circle r="96" fill="#0d2a3a"/>
+    <g fill="#8ff3ff" fill-opacity=".55">
+      <circle cx="-46" cy="-46" r="4"/><circle cx="0" cy="-62" r="5"/><circle cx="46" cy="-46" r="4"/>
+      <circle cx="-70" cy="0" r="5"/><circle cx="70" cy="0" r="4"/><circle cx="-46" cy="46" r="4"/>
+      <circle cx="0" cy="62" r="5"/><circle cx="46" cy="46" r="4"/>
+    </g>
+  </g>
+
+  <!-- Notas musicales flotantes -->
+  <g fill="#bff3ff" opacity=".55" font-family="Georgia, serif" font-size="64">
+    <text x="196" y="700" opacity=".5">&#9834;</text>
+    <text x="828" y="770" opacity=".42">&#9834;</text>
+    <text x="286" y="1430" opacity=".34">&#9835;</text>
+    <text x="806" y="1500" opacity=".3">&#9835;</text>
+  </g>
+
+  <g opacity=".8">
+    <use href="#bubble" x="150" y="520"/>
+    <use href="#bubble" x="900" y="600"/>
+    <use href="#bubble" x="240" y="1120"/>
+    <use href="#bubble" x="880" y="1320"/>
+    <use href="#bubble" x="110" y="880"/>
+  </g>
+
+  <!-- Ecualizador ambiental -->
+  <g opacity=".22" fill="#67e8f9">
+    <rect x="60"  y="1640" width="16" height="70"  rx="8"/>
+    <rect x="92"  y="1600" width="16" height="110" rx="8"/>
+    <rect x="124" y="1560" width="16" height="150" rx="8"/>
+    <rect x="156" y="1615" width="16" height="95"  rx="8"/>
+    <rect x="188" y="1570" width="16" height="140" rx="8"/>
+    <rect x="220" y="1630" width="16" height="80"  rx="8"/>
+    <rect x="844" y="1620" width="16" height="90"  rx="8"/>
+    <rect x="876" y="1580" width="16" height="130" rx="8"/>
+    <rect x="908" y="1545" width="16" height="165" rx="8"/>
+    <rect x="940" y="1605" width="16" height="105" rx="8"/>
+    <rect x="972" y="1565" width="16" height="145" rx="8"/>
+    <rect x="1004" y="1635" width="16" height="75" rx="8"/>
+  </g>
+
+  <!-- ============ CHICA ESCUCHANDO MUSICA ============ -->
+  <g transform="translate(540 1080)">
+
+    <!-- Aura -->
+    <ellipse cx="0" cy="60" rx="330" ry="330" fill="#22d3ee" fill-opacity=".14" filter="url(#soft)"/>
+
+    <!-- Cabello trasero -->
+    <path d="M-176 -128c-30 -180 40 -300 176 -300s206 120 176 300c-14 86 -26 150 -18 236-58 -34 -92 -104 -98 -186-40 76 -114 118 -186 122 8-58 6-116-6-172-14 40-32 76 -54 106-8-46-6-84 10-106z"
+          fill="url(#hair)"/>
+
+    <!-- Cuerpo / hombros -->
+    <path d="M-300 470c0 -186 130 -300 300 -300s300 114 300 300z" fill="url(#shirt)"/>
+    <path d="M-300 470c0 -100 34 -186 96 -240l204 240z" fill="url(#shirtDark)" opacity=".45"/>
+
+    <!-- Cuello -->
+    <path d="M-58 -60h116v96c0 26 -26 44 -58 44s-58 -18 -58 -44z" fill="url(#skin)"/>
+
+    <!-- Rostro -->
+    <ellipse cx="0" cy="-104" rx="136" ry="158" fill="url(#skin)"/>
+
+    <!-- Orejas -->
+    <circle cx="-134" cy="-92" r="24" fill="url(#skin)"/>
+    <circle cx="134" cy="-92" r="24" fill="url(#skin)"/>
+
+    <!-- Flequillo -->
+    <path d="M-138 -150c-4 -122 52 -196 138 -196s142 74 138 196c-18 -68 -58 -108 -104 -114-40 34 -108 52 -172 44z" fill="url(#hair)"/>
+    <path d="M-96 -206c44 -34 112 -44 168 -22-46 6 -92 30 -128 62z" fill="url(#hairSheen)"/>
+
+    <!-- Ojos (cerrados, disfrutando) -->
+    <g fill="none" stroke="#2a1720" stroke-width="7" stroke-linecap="round">
+      <path d="M-88 -110c14 16 40 16 54 0"/>
+      <path d="M34 -110c14 16 40 16 54 0"/>
+    </g>
+    <g fill="#ff7a9c" fill-opacity=".9">
+      <circle cx="-52" cy="-58" r="13"/>
+      <circle cx="52" cy="-58" r="13"/>
+    </g>
+
+    <!-- Nariz + sonrisa -->
+    <path d="M0 -70c-6 16-10 24-4 28" fill="none" stroke="#c98b66" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-30 -34c16 20 44 20 60 0" fill="none" stroke="#8c2f47" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Auriculares -->
+    <g>
+      <path d="M-150 -116a150 150 0 0 1 300 0" fill="none" stroke="#1d2733" stroke-width="17" stroke-linecap="round"/>
+      <path d="M-150 -116a150 150 0 0 1 300 0" fill="none" stroke="#3ddcff" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+      <rect x="-186" y="-146" width="56" height="86" rx="26" fill="#141c26"/>
+      <rect x="130" y="-146" width="56" height="86" rx="26" fill="#141c26"/>
+      <rect x="-176" y="-136" width="36" height="66" rx="18" fill="#2ee6ff" opacity=".8"/>
+      <rect x="140" y="-136" width="36" height="66" rx="18" fill="#2ee6ff" opacity=".8"/>
+    </g>
+
+    <!-- Manos con el teléfono -->
+    <path d="M-286 300c-30 10 -46 44 -34 74l26 66c10 26 42 32 62 12l64 -62-58 -104z" fill="url(#skin)"/>
+    <path d="M286 300c30 10 46 44 34 74l-26 66c-10 26 -42 32 -62 12l-64 -62 58 -104z" fill="url(#skin)"/>
+    <g transform="translate(0 292) rotate(-6)">
+      <rect x="-84" y="-142" width="168" height="284" rx="30" fill="url(#phone)"/>
+      <rect x="-70" y="-126" width="140" height="238" rx="20" fill="#0f1721"/>
+      <g fill="#2ee6ff">
+        <rect x="-56" y="60" width="8" height="30" rx="4" opacity=".95"/>
+        <rect x="-42" y="42" width="8" height="48" rx="4" opacity=".8"/>
+        <rect x="-28" y="20" width="8" height="70" rx="4" opacity=".65"/>
+        <rect x="-14" y="-6" width="8" height="96" rx="4" opacity=".5"/>
+        <rect x="0"   y="-30" width="8" height="120" rx="4" opacity=".4"/>
+        <rect x="14"  y="4"  width="8" height="86" rx="4" opacity=".5"/>
+        <rect x="28"  y="28" width="8" height="62" rx="4" opacity=".65"/>
+        <rect x="42"  y="50" width="8" height="40" rx="4" opacity=".8"/>
+      </g>
+      <circle cx="0" cy="-104" r="9" fill="#243040"/>
+    </g>
+
+    <!-- Ondas de sonido -->
+    <g fill="none" stroke="#67e8f9" stroke-linecap="round" opacity=".6">
+      <path d="M-224 214c-34 -46 -34 -104 0 -150" stroke-width="7"/>
+      <path d="M-262 250c-58 -76 -58 -166 0 -242" stroke-width="6" opacity=".7"/>
+      <path d="M-300 286c-82 -106 -82 -232 0 -338" stroke-width="5" opacity=".45"/>
+      <path d="M224 214c34 -46 34 -104 0 -150" stroke-width="7"/>
+      <path d="M262 250c58 -76 58 -166 0 -242" stroke-width="6" opacity=".7"/>
+      <path d="M300 286c82 -106 82 -232 0 -338" stroke-width="5" opacity=".45"/>
+    </g>
+  </g>
+
+  <!-- Vineta -->
+  <rect width="1080" height="1920" fill="none"/>
+  <rect width="1080" height="1920" fill="#02060d" fill-opacity=".18"/>
+</svg>

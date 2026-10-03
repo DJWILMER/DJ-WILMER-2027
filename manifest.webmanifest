@@ -1,0 +1,37 @@
+{
+  "name": "DJ WILMER · Radio en vivo",
+  "short_name": "DJ WILMER",
+  "description": "Escucha DJ WILMER en vivo: música, programa y novedades de tu radio preferida. Funciona en móvil y PC, e instalable como aplicación.",
+  "id": "./",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#041726",
+  "theme_color": "#08384a",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["music", "entertainment"],
+  "icons": [
+    { "src": "assets/icons/favicon-64.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/icons/apple-touch-180.png", "sizes": "180x180", "type": "image/png" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Reproducir en vivo",
+      "short_name": "Escuchar",
+      "url": "./index.html?play=1",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Historial de canciones",
+      "short_name": "Historial",
+      "url": "./index.html?sheet=history",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="caribe">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+<title>DJ WILMER · Radio en vivo</title>
+<meta name="description" content="Escucha DJ WILMER en vivo. Música, programa y novedades de tu radio preferida, disponible en móvil y PC." />
+<meta name="theme-color" content="#08384a" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta property="og:title" content="DJ WILMER · Radio en vivo" />
+<meta property="og:description" content="Sintoniza DJ WILMER 24/7 con la mejor música." />
+<meta property="og:type" content="website" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="assets/icons/favicon-64.png" sizes="64x64" />
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-180.png" />
+<link rel="preconnect" href="https://i.ibb.co" crossorigin />
+<link rel="preconnect" href="https://stream.zeno.fm" />
+<link rel="stylesheet" href="css/styles.css?v=1" />
+</head>
+<body>
+
+<!-- ============ FONDO ============ -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-photo" id="bgPhoto"></div>
+  <div class="bg-blur" id="bgBlur"></div>
+  <div class="bg-tint"></div>
+  <div class="bg-glow"></div>
+  <canvas class="bg-particles" id="particles"></canvas>
+  <div class="bg-grain"></div>
+</div>
+
+<!-- ============ TARJETA / STAGE ============ -->
+<div class="stage">
+  <main class="player" id="player">
+
+    <header class="topbar">
+      <button class="burger" id="btnMenu" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span><span></span><span></span>
+      </button>
+      <div class="brandline">
+        <span id="brandName">DJ WILMER</span>
+        <span class="live-chip"><i></i>EN VIVO</span>
+      </div>
+      <button class="icon-btn" id="btnShare" aria-label="Compartir">
+        <svg><use href="#i-share"></use></svg>
+      </button>
+    </header>
+
+    <!-- Carátula / logo con ecualizador -->
+    <section class="artwork">
+      <div class="eq-ring" id="eqRing" aria-hidden="true"></div>
+      <div class="pulse-ring" aria-hidden="true"></div>
+      <div class="disc" id="disc">
+        <img id="albumArt" alt="DJ Wilmer" />
+        <span class="disc-shine" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <div class="now-pill" id="nowPill">
+      <span class="rec" aria-hidden="true"></span>
+      <span id="nowPillText">SONANDO AHORA</span>
+    </div>
+
+    <!-- Metadatos -->
+    <section class="meta">
+      <div class="meta-artist" id="artist">DJ WILMER</div>
+      <div class="meta-song" id="song">Conectando con TREAMING DELGADO…</div>
+      <div class="meta-stats" id="stats" hidden></div>
+    </section>
+
+    <!-- Redes sociales -->
+    <nav class="socials" id="socials" aria-label="Redes sociales"></nav>
+
+    <!-- Controles -->
+    <div class="controls">
+      <button class="ctrl" id="btnHistory" aria-label="Historial">
+        <svg><use href="#i-history"></use></svg>
+      </button>
+
+      <button class="play-btn" id="btnPlay" aria-label="Reproducir">
+        <span class="play-ring" aria-hidden="true"></span>
+        <svg class="ico-play"><use href="#i-play"></use></svg>
+        <svg class="ico-pause"><use href="#i-pause"></use></svg>
+        <span class="spinner" aria-hidden="true"></span>
+      </button>
+
+      <button class="ctrl" id="btnMute" aria-label="Silenciar">
+        <svg class="ico-vol"><use href="#i-volume"></use></svg>
+        <svg class="ico-mute"><use href="#i-mute"></use></svg>
+      </button>
+    </div>
+
+    <div class="volume-row">
+      <svg class="v-ico"><use href="#i-volume"></use></svg>
+      <input type="range" id="vol" min="0" max="100" value="85" aria-label="Volumen" />
+      <output id="volOut">85</output>
+    </div>
+
+    <!-- Barra rápida -->
+    <nav class="quickbar" aria-label="Accesos rápidos">
+      <button data-sheet="sheetThemes"><svg><use href="#i-palette"></use></svg><span>Temas</span></button>
+      <button data-sheet="sheetHistory"><svg><use href="#i-history"></use></svg><span>Historial</span></button>
+      <button data-sheet="sheetSocial"><svg><use href="#i-users"></use></svg><span>Redes</span></button>
+      <button data-sheet="sheetSettings"><svg><use href="#i-gear"></use></svg><span>Ajustes</span></button>
+    </nav>
+  </main>
+</div>
+
+<!-- ============ MENU LATERAL ============ -->
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <img id="drawerLogo" alt="DJ Wilmer" />
+    <button class="icon-btn light" id="btnCloseMenu" aria-label="Cerrar menú">
+      <svg><use href="#i-close"></use></svg>
+    </button>
+  </div>
+
+  <div class="drawer-body">
+    <div class="drawer-group">
+      <span class="drawer-title">Reproductor</span>
+      <button class="drawer-item" data-sheet="sheetThemes"><svg><use href="#i-palette"></use></svg> temas y colores</button>
+      <button class="drawer-item" data-sheet="sheetHistory"><svg><use href="#i-history"></use></svg> historial de canciones</button>
+      <button class="drawer-item" data-sheet="sheetSocial"><svg><use href="#i-users"></use></svg> redes sociales</button>
+      <button class="drawer-item" data-sheet="sheetSettings"><svg><use href="#i-gear"></use></svg> ajustes y efectos</button>
+    </div>
+
+    <div class="drawer-group">
+      <span class="drawer-title">Comunidad</span>
+      <a class="drawer-item" id="drawerWa" href="#" target="_blank" rel="noopener">
+        <svg class="wa"><use href="#i-whatsapp"></use></svg> grupo de WhatsApp
+      </a>
+      <button class="drawer-item" id="drawerInstall"><svg><use href="#i-download"></use></svg> instalar aplicación</button>
+    </div>
+
+    <div class="drawer-group">
+      <span class="drawer-title">Más información</span>
+      <button class="drawer-item" data-link="review"><svg><use href="#i-star"></use></svg> califica la app</button>
+      <button class="drawer-item" id="drawerShare"><svg><use href="#i-share"></use></svg> compartir</button>
+      <button class="drawer-item" data-link="privacy"><svg><use href="#i-doc"></use></svg> términos y políticas</button>
+    </div>
+  </div>
+
+  <div class="drawer-foot">
+    <span id="drawerTheme">Azul Caribe</span>
+    <span class="dot">·</span>
+    <span>STREAMING-DELGADO HD</span>
+  </div>
+</aside>
+
+<!-- ============ HOJAS (SHEETS) ============ -->
+<div class="sheet-wrap" id="sheetWrap" aria-hidden="true">
+  <div class="sheet-panel" id="sheetPanel" role="dialog" aria-modal="true">
+
+    <section class="sheet" id="sheetThemes">
+      <header class="sheet-head">
+        <h2>Temas y colores</h2>
+        <button class="icon-btn light" data-close-sheet><svg><use href="#i-close"></use></svg></button>
+      </header>
+      <div class="sheet-body">
+        <p class="sheet-hint">10 temas disponibles. El color se aplica a toda la app y se recuerda en tu dispositivo.</p>
+        <div class="theme-grid" id="themeGrid"></div>
+        <div class="opt-row">
+          <label class="opt"><input type="checkbox" id="optRotate" /> <span>Logo giratorio</span></label>
+          <label class="opt"><input type="checkbox" id="optEffects" /> <span>Efectos y partículas</span></label>
+          <label class="opt"><input type="checkbox" id="optReduced" /> <span>Movimiento reducido</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="sheet" id="sheetHistory">
+      <header class="sheet-head">
+        <h2>Historial de canciones</h2>
+        <button class="icon-btn light" data-close-sheet><svg><use href="#i-close"></use></svg></button>
+      </header>
+      <div class="sheet-body">
+        <div class="sheet-actions">
+          <button class="chip" id="btnClearHistory">Limpiar</button>
+          <button class="chip ghost" id="btnCopyHistory">Copiar lista</button>
+        </div>
+        <ul class="song-list" id="historyList"></ul>
+      </div>
+    </section>
+
+    <section class="sheet" id="sheetSocial">
+      <header class="sheet-head">
+        <h2>Redes sociales</h2>
+        <button class="icon-btn light" data-close-sheet><svg><use href="#i-close"></use></svg></button>
+      </header>
+      <div class="sheet-body">
+        <ul class="social-list" id="socialList"></ul>
+        <button class="chip ghost block" id="btnResetSocial">Restaurar enlaces por defecto</button>
+      </div>
+    </section>
+
+    <section class="sheet" id="sheetSettings">
+      <header class="sheet-head">
+        <h2>Ajustes</h2>
+        <button class="icon-btn light" data-close-sheet><svg><use href="#i-close"></use></svg></button>
+      </header>
+      <div class="sheet-body">
+        <div class="field">
+          <label for="inpBg">Fondo de pantalla (URL de imagen)</label>
+          <input type="url" id="inpBg" placeholder="https://…/mi-foto.jpg" />
+          <div class="field-actions">
+            <button class="chip" id="btnApplyBg">Aplicar</button>
+            <button class="chip ghost" id="btnUploadBg">Subir imagen</button>
+            <button class="chip ghost" id="btnResetBg">Original</button>
+          </div>
+          <input type="file" id="fileBg" accept="image/*" hidden />
+        </div>
+
+        <div class="field">
+          <label for="inpLogo">Logo / carátula (URL de imagen)</label>
+          <input type="url" id="inpLogo" />
+          <div class="field-actions">
+            <button class="chip" id="btnApplyLogo">Aplicar</button>
+            <button class="chip ghost" id="btnResetLogo">Original</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="inpWa">Enlace del grupo de WhatsApp</label>
+          <input type="url" id="inpWa" />
+          <div class="field-actions">
+            <button class="chip" id="btnApplyWa">Guardar</button>
+          </div>
+        </div>
+
+        <button class="chip ghost block danger" id="btnResetAll">Restablecer toda la configuración</button>
+        <p class="sheet-hint small">DJ WILMER · PWA instalable · funciona en móvil y PC.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ============ FLOTANTE WHATSAPP ============ -->
+<a class="fab" id="fabWa" href="#" target="_blank" rel="noopener" aria-label="Grupo de WhatsApp">
+  <span class="fab-ring" aria-hidden="true"></span>
+  <svg><use href="#i-whatsapp"></use></svg>
+  <em class="fab-badge">1</em>
+</a>
+
+<!-- ============ AVISO DE AUTOPLAY ============ -->
+<div class="hint" id="hint" hidden>
+  Toca <svg class="inl"><use href="#i-play"></use></svg> para escuchar en vivo
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ SPRITE DE ICONOS ============ -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-play" fill="currentColor" viewBox="0 0 24 24"><path d="M7 3.5 20 12 7 20.5z"/></symbol>
+    <symbol id="i-pause" fill="currentColor" viewBox="0 0 24 24"><path d="M5.5 4h4.2v16H5.5zm8.8 0h4.2v16h-4.2z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17M15.4 7 8.6 10.5"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/><path d="M12 7.5V12l3.2 2"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.8a4.5 4.5 0 0 1 0 6.4M19.2 6.1a8.5 8.5 0 0 1 0 11.8"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="m16.5 9.5 5 5m0-5-5 5"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1.4 0 2-1 2-2 0-1.6-1.6-1.6-1.6-3 0-1 .8-1.8 2-1.8h1.8A4.8 4.8 0 0 0 21 9.4C21 5.9 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.1" fill="currentColor" stroke="none"/><circle cx="10.5" cy="7.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="8.5" r="1.1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M16 5.5a3 3 0 0 1 0 5.6M17.5 14.8c2.2.6 3.5 2.4 3.5 5.2"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 9 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 9a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5"/><path d="M4 17v2.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V17"/></symbol>
+    <symbol id="i-star" fill="currentColor" viewBox="0 0 24 24"><path d="m12 2.6 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-whatsapp" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2A9.9 9.9 0 0 0 2.1 11.9c0 1.75.46 3.46 1.34 4.96L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01A9.9 9.9 0 0 0 22 11.94 9.9 9.9 0 0 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 0 16.2c-1.4 0-2.78-.38-3.95-1.09l-.28-.17-2.93.77.78-2.86-.18-.29a8.06 8.06 0 0 1-1.24-4.36 8.1 8.1 0 0 1 8.1-8.1zm-3.6 3.5c-.18 0-.47.07-.72.33-.25.27-.94.92-.94 2.24s.96 2.6 1.1 2.78c.13.18 1.86 2.96 4.6 4.03 2.29.9 2.74.72 3.24.68.5-.05 1.6-.66 1.83-1.29.22-.63.22-1.17.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.6.14-.19.27-.7.88-.86 1.06-.16.18-.32.2-.6.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.42.11-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.46-.83-2-.21-.5-.43-.44-.59-.45h-.5z"/></symbol>
+    <symbol id="i-facebook" fill="currentColor" viewBox="0 0 24 24"><path d="M14 9V7.2c0-.8.2-1.2 1.3-1.2H17V3h-2.6C11.3 3 10 4.3 10 6.8V9H8v3.2h2V21h3.9v-8.8h2.6L17 9h-3z"/></symbol>
+    <symbol id="i-instagram" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 3.25.15 4.77 1.7 4.92 4.92.06 1.28.07 1.67.07 4.9s0 3.6-.07 4.9c-.15 3.2-1.66 4.77-4.92 4.92-1.3.06-1.68.07-4.9.07s-3.6 0-4.9-.07c-3.26-.15-4.77-1.72-4.92-4.92C2.16 15.6 2.16 15.2 2.16 12s0-3.6.07-4.9C2.38 3.9 3.9 2.32 7.14 2.17 8.4 2.1 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-2.58.12-3.66 1.2-3.78 3.78C3.42 10.1 3.4 10.5 3.4 12s.01 1.9.07 3.14c.12 2.58 1.2 3.66 3.78 3.78 1.24.06 1.6.07 4.75.07s3.5-.01 4.74-.07c2.58-.12 3.66-1.2 3.78-3.78.06-1.24.07-1.6.07-4.14s-.01-2.9-.07-4.14c-.12-2.58-1.2-3.66-3.78-3.78C15.5 4.01 15.14 4 12 4zm0 3.05a4.95 4.95 0 1 1 0 9.9 4.95 4.95 0 0 1 0-9.9zm0 1.8a3.15 3.15 0 1 0 0 6.3 3.15 3.15 0 0 0 0-6.3zm5.15-2.9a1.16 1.16 0 1 1 0 2.32 1.16 1.16 0 0 1 0-2.32z"/></symbol>
+    <symbol id="i-youtube" fill="currentColor" viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26.2 26.2 0 0 0 2 12a26.2 26.2 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26.2 26.2 0 0 0 22 12a26.2 26.2 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></symbol>
+    <symbol id="i-tiktok" fill="currentColor" viewBox="0 0 24 24"><path d="M16.6 2h-3.1v13.2a2.6 2.6 0 1 1-2.6-2.6c.27 0 .53.04.78.12V9.5a5.9 5.9 0 1 0 4.92 5.82V8.9a6.8 6.8 0 0 0 3.9 1.24V7.03a3.8 3.8 0 0 1-2.9-1.3A3.8 3.8 0 0 1 16.6 2z"/></symbol>
+    <symbol id="i-x" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.85-6.35L5.2 21H2.1l7.3-8.35L2.4 3h6.35l4.38 5.8L17.5 3zm-1.1 16.1h1.7L7.6 4.8H5.8l10.6 14.3z"/></symbol>
+    <symbol id="i-spotify" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.56 14.42a.62.62 0 0 1-.86.2c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.8-.88 7.08-.5 9.7 1.1.3.18.39.57.23.87zm1.23-2.7a.78.78 0 0 1-1.07.25c-2.7-1.65-6.8-2.14-9.98-1.17a.78.78 0 1 1-.45-1.5c3.64-1.1 8.15-.55 11.25 1.35.37.22.48.7.25 1.07zm.1-2.83C14.02 8.5 8.4 8.3 5.3 9.23a.94.94 0 1 1-.54-1.79c3.53-1.07 9.8-.83 13.55 1.57a.94.94 0 0 1-.94 1.64z"/></symbol>
+    <symbol id="i-web" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.93 6h-2.95a15.6 15.6 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14a8.1 8.1 0 0 1 0-4h3.38a16.5 16.5 0 0 0 0 4H4.26zm.81 2h2.95c.32 1.25.81 2.45 1.48 3.56A7.99 7.99 0 0 1 5.07 16zm2.95-8H5.07a7.99 7.99 0 0 1 4.43-3.56A15.6 15.6 0 0 0 8.02 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82A14.7 14.7 0 0 1 12 19.96zM14.34 14H9.66a14.9 14.9 0 0 1 0-4h4.68a14.9 14.9 0 0 1 0 4zm.52 5.56c.67-1.11 1.16-2.31 1.48-3.56h2.95a8.03 8.03 0 0 1-4.43 3.56zM16.36 14a16.5 16.5 0 0 0 0-4h3.38a8.1 8.1 0 0 1 0 4h-3.38z"/></symbol>
+  </defs>
+</svg>
+
+<script src="js/config.js?v=1"></script>
+<script src="js/store.js?v=1"></script>
+<script src="js/theme.js?v=1"></script>
+<script src="js/api.js?v=1"></script>
+<script src="js/player.js?v=1"></script>
+<script src="js/ui.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+</body>
+</html>
